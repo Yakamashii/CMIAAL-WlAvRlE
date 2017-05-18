@@ -48,3 +48,12 @@ and
 
 sudo dscl . read /Users/<user> dsAttrTypeNative:ShadowHashData
 
+ http://www.openwall.com/john/contrib/john-1.7.3.1-all-6-macosx-universal-1.zip
+ 
+ crackMe:33BA7C74C318F5D3EF40EB25E1C42F312ACF905E20540226
+ 
+ cd /name_of_your_john_folder/
+ 
+ ./run/john sha1.txt
+ 
+ 
